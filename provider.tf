@@ -1,3 +1,9 @@
+locals{
+  db_cred = jsondecode(
+    data.aws_secretsmanager_secret_version.credentials.secret_string
+  )
+}
+
 provider "aws" {
   # access_key = var.AWS_ACCESS_KEY
   # secret_key = var.AWS_SECRET_KEY
@@ -8,4 +14,8 @@ assume_role {
   role_arn = "arn:aws:iam::533267419089:role/Engineer"
 
   }
+}
+
+data "aws_secretsmanager_secret_version" "credentials" {
+  secret_id = "cred"
 }
