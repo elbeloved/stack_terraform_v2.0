@@ -1,13 +1,7 @@
-locals{
-  db_cred = jsondecode(
-    data.aws_secretsmanager_secret_version.credentials.secret_string
-  )
-}
-
 provider "aws" {
   # access_key = var.AWS_ACCESS_KEY
   # secret_key = var.AWS_SECRET_KEY
-   region      = local.db_cred.AWS_REGION
+   region      = "us-east-1"
 
 assume_role {
   #the role ARN within Account A to assume role into. Created in step 1
