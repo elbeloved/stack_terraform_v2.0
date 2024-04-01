@@ -1,6 +1,8 @@
 # variable "AWS_ACCESS_KEY" {}
 # variable "AWS_SECRET_KEY" {}
-# variable "AWS_REGION" {}
+ variable "AWS_REGION" {
+  default = local.db_cred.AWS_REGION
+ }
 
 variable "environment" {
   default = "dev"
