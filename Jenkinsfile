@@ -11,7 +11,10 @@ pipeline {
         } 
         stage('terraform plan'){
             steps {
-                sh "terraform plan"
+
+                sh """
+                    cd ${WORKSPACE}
+                    terraform plan"""
             }
         }
     }
