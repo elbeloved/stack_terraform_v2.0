@@ -7,14 +7,10 @@ pipeline {
         stage('terraform init'){
             steps {
                 sh "terraform init"
-        }
-         stage('terraform plan'){
-            steps {
-            	sh "terraform plan"
-        }
-        }   
+            }
+        } 
     }
-}   }
+}
 
 def getTerraformPath(){
     def tfHome= tool name:'terraform-40',type:'terraform'
